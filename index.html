@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+<title>Custom Coastal Emergency Preparedness and Response Checklist</title>
+<div class="container-fluid">
+  <h1>Custom Coastal Emergency Preparedness and Response Checklist</h1>
+  <form>
+    <fieldset>
+      <label>Dwelling type</label>
+      <select data-bind="value: dwellingType" class="input-block-level">
+        <option value="house">House</option>
+        <option value="apt">Apartment, 10th floor or below</option>
+        <option value="skyrise">Apartment, above 10th floor</option>
+      </select>
+      <label>Urgency</label>
+      <select data-bind="value: urgency" class="input-block-level">
+        <option value="low">Low &mdash; all is well</option>
+        <option value="medium">Medium &mdash; concerned, but not ordered to evacuate</option>
+        <option value="high">High &mdash; ordered to evacuate</option>
+      </select>
+    </fieldset>
+  </form>
+  <h2>Your Custom Checklist</h2>
+  <ul>
+    <li data-bind="visible: urgency() == 'medium' && dwellingType() == 'skyrise'">Get under the 10th floor of your building.</li>
+    <li data-bind="visible: urgency() != 'low' && dwellingType() == 'house'">Cover all of your home’s windows. Permanent storm shutters offer the best protection for windows. A second option is to board up windows with 5/8” marine plywood, cut to fit and ready to install. Tape does not prevent windows from breaking.</li>
+    <li data-bind="visible: urgency() != 'high' && dwellingType() == 'house'">Clear loose and clogged rain gutters and downspouts.</li>
+    <li data-bind="visible: urgency() != 'high' && dwellingType() == 'house'">Reinforce your garage doors; if wind enters a garage it can cause dangerous and expensive structural damage.</li>
+    <li data-bind="visible: urgency() == 'low'">Back up all your personal documents digitally</li>
+    <li data-bind="visible: urgency() == 'medium' && dwellingType() == 'house'">Plan to bring in all outdoor furniture, decorations, garbage cans and anything else that is not tied down.</li>
+    <li data-bind="visible: urgency() != 'low'">Decide where your household/flatmates will reunite after a disaster. Identify two places to meet: one right outside your home and another outside your neighborhood, such as a library, community center, or place of worship.</li>
+    <li data-bind="visible: urgency() == 'medium'">Leave natural gas on, unless local officials advise otherwise. If you turn gas off, a licensed professional is required to turn it back on, and it may take weeks for a professional to respond.</li>
+    <li data-bind="visible: urgency() == 'high' && dwellingType() == 'house'">Turn off the main water valve.</li>
+    <li data-bind="visible: urgency() == 'high' && dwellingType() == 'house'">Turn off electricity at the main fuse or breaker.</li>
+    <li data-bind="visible: urgency() == 'high' && dwellingType() == 'house'">Turn off your propane tank.</li>
+    <li data-bind="visible: urgency() != 'high'">Teach children how and when to call 911 or your local Emergency Medical Services number for emergency help.</li>
+    <li data-bind="visible: urgency() != 'low'">Turn your refrigerator and freezer to the coldest setting. Keep them closed as much as possible so that food will last longer if the power goes out.</li>
+    <li data-bind="visible: urgency() != 'low'">Register on the <a href="https://disastersafe.redcross.org">American Cross Safe and Well Website</a>.</li>
+    <li data-bind="visible: urgency() == 'low'">Post emergency telephone numbers by phones (fire, police, ambulance, etc.)</li>
+    <li data-bind="visible: urgency() == 'low'">Take a Red Cross first aid and CPR class.</li>
+    <li data-bind="visible: urgency() == 'low'">Grab a beer.</li>
+  </ul>
+  <div class="muted" style="position: absolute; bottom: 4px; left: 4px; right: 4px;">Checklist items are taken from the American Red Cross, FEMA, OEM, and CDC.</div>
+</div>
+<script src="knockout.js"></script>
+<script>
+var viewModel;
+
+onload = function() {
+  viewModel = {
+    dwellingType: ko.observable(),
+    urgency: ko.observable()
+  };
+
+  ko.applyBindings(viewModel);
+};
+</script>
