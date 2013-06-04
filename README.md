@@ -10,7 +10,7 @@ on June 1, 2013.
 A lot of people knew Sandy was coming but didn’t know how to prepare,
 and this is what usually happens a lot before disasters. Existing resources
 such as the checklists by the American Red Cross, FEMA, OEM, and CDC 
-contain many elemnts that are only applicable to certain demographics
+contain many elements that are only applicable to certain demographics
 and specific levels of urgency; this culminates in a flood of 
 confusing information with a lot of noise in it.
 
